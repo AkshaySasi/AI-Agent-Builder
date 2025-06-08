@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent Builder</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #333; }
+        .input-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], input[type="number"], input[type="email"] { width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        button { background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        #output { margin-top: 20px; padding: 10px; border: 1px solid #ddd; border-radius: 4px; background-color: #f9f9f9; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Agent Builder</h1>
+        
+        <div class="input-group">
+            <label for="pdf-upload">Upload PDF (for PDF summarization):</label>
+            <input type="file" id="pdf-upload" accept=".pdf">
+            <button onclick="uploadPDF()">Upload PDF</button>
+            <div id="upload-status"></div>
+        </div>
+
+        <div class="input-group">
+            <label for="email">Your Email (for Hacker News agent):</label>
+            <input type="email" id="email" placeholder="e.g., user@example.com">
+        </div>
+
+        <div class="input-group">
+            <label for="prompt">Enter Prompt:</label>
+            <input type="text" id="prompt" placeholder="e.g., Summarize tweets from elonmusk and post it">
+            <label for="interval">Schedule Interval (minutes, optional):</label>
+            <input type="number" id="interval" placeholder="e.g., 5 for Twitter, 1440 for daily email" min="1">
+            <button onclick="generateAgent()">Generate Agent</button>
+        </div>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const API_BASE_URL = 'http://127.0.0.1:5000';
+
+        let currentAgentId = null;
+        let currentFilePath = null;
+
+        async function uploadPDF() {
+            const fileInput = document.getElementById('pdf-upload');
+            const uploadStatus = document.getElementById('upload-status');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                uploadStatus.innerText = 'Please select a PDF file.';
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                console.log(`Sending POST request to ${API_BASE_URL}/upload_pdf`);
+                const response = await fetch(`${API_BASE_URL}/upload_pdf`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const clonedResponse = response.clone();
+                let result;
+                try {
+                    result = await response.json();
+                } catch (e) {
+                    const text = await clonedResponse.text();
+                    throw new Error(`Failed to parse response: ${e.message}\nResponse: ${text} (Status: ${response.status})`);
+                }
+
+                if (response.ok) {
+                    uploadStatus.innerText = result.message + ' Path: ' + result.file_path;
+                    currentFilePath = result.file_path;
+                } else {
+                    uploadStatus.innerText = result.error || `Server error (Status: ${response.status})`;
+                }
+            } catch (error) {
+                uploadStatus.innerText = 'Error uploading PDF: ' + error.message;
+            }
+        }
+
+        async function generateAgent() {
+            const promptInput = document.getElementById('prompt').value;
+            const intervalInput = document.getElementById('interval').value;
+            const outputDiv = document.getElementById('output');
+
+            if (!promptInput) {
+                outputDiv.innerText = 'Please enter a prompt.';
+                return;
+            }
+
+            const payload = {
+                prompt: promptInput,
+                interval: intervalInput || null
+            };
+
+            outputDiv.innerText = 'Generating agent... Please wait.';
+            try {
+                console.log(`Sending POST request to ${API_BASE_URL}/generate_agent with payload:`, payload);
+                const response = await fetch(`${API_BASE_URL}/generate_agent`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Cache-Control': 'no-cache'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const clonedResponse = response.clone();
+                let result;
+                try {
+                    result = await response.json();
+                } catch (e) {
+                    const text = await clonedResponse.text();
+                    throw new Error(`Failed to parse JSON response: ${e.message}\nResponse: ${text} (Status: ${response.status})`);
+                }
+
+                if (response.ok) {
+                    currentAgentId = result.agent_id;
+                    outputDiv.innerText = `Agent created (ID: ${currentAgentId}).\nOutput: ${result.output}`;
+                    if (intervalInput) {
+                        outputDiv.innerText += `\nScheduled to run every ${intervalInput} minutes.`;
+                    }
+                    addRunAgainButton();
+                } else {
+                    outputDiv.innerText = result.error || `Server error (Status: ${response.status})`;
+                }
+            } catch (error) {
+                outputDiv.innerText = 'Error generating agent: ' + error.message;
+            }
+        }
+
+        function addRunAgainButton() {
+            const outputDiv = document.getElementById('output');
+            if (!document.getElementById('run-again-btn')) {
+                const runAgainBtn = document.createElement('button');
+                runAgainBtn.id = 'run-again-btn';
+                runAgainBtn.innerText = 'Run Again';
+                runAgainBtn.style.marginTop = '10px';
+                runAgainBtn.onclick = runAgent;
+                outputDiv.appendChild(runAgainBtn);
+            }
+        }
+
+        async function runAgent() {
+            if (!currentAgentId) {
+                document.getElementById('output').innerText = 'No agent to run.';
+                return;
+            }
+
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerText = 'Running agent... Please wait.';
+            try {
+                console.log(`Sending GET request to ${API_BASE_URL}/run_agent/${currentAgentId}`);
+                const response = await fetch(`${API_BASE_URL}/run_agent/${currentAgentId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Cache-Control': 'no-cache'
+                    }
+                });
+
+                const clonedResponse = response.clone();
+                let result;
+                try {
+                    result = await response.json();
+                } catch (e) {
+                    const text = await clonedResponse.text();
+                    throw new Error(`Failed to parse JSON response: ${e.message}\nResponse: ${text} (Status: ${response.status})`);
+                }
+
+                if (response.ok) {
+                    outputDiv.innerText = `Output: ${result.output}`;
+                    addRunAgainButton();
+                } else {
+                    outputDiv.innerText = result.error || `Server error (Status: ${response.status})`;
+                }
+            } catch (error) {
+                outputDiv.innerText = 'Error running agent: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

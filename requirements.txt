@@ -1,0 +1,12 @@
+Flask==3.0.3
+flask-cors==5.0.0
+langchain==0.3.0
+langchain-openai==0.2.0
+requests==2.32.3
+beautifulsoup4==4.12.3
+python-dotenv==1.0.1
+tweepy==4.14.0
+apscheduler==3.10.4
+PyPDF2==3.0.1
+watchdog==5.0.3
+gunicorn==23.0.0

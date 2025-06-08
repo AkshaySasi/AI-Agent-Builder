@@ -1,0 +1,384 @@
+2025-06-08 12:21:20,431 [INFO] Scheduler started
+2025-06-08 12:21:20,481 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 12:21:20,482 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 12:25:30,382 [INFO] Scheduler started
+2025-06-08 12:25:30,455 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 12:25:30,462 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 14:41:03,777 [INFO] Scheduler started
+2025-06-08 14:41:03,794 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 14:41:03,794 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 14:46:35,958 [INFO] Scheduler started
+2025-06-08 14:46:35,988 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 14:46:35,988 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 14:46:35,990 [INFO]  * Restarting with stat
+2025-06-08 14:46:40,022 [INFO] Scheduler started
+2025-06-08 14:46:40,037 [WARNING]  * Debugger is active!
+2025-06-08 14:46:40,050 [INFO]  * Debugger PIN: 123-023-656
+2025-06-08 14:53:36,080 [INFO] Scheduler started
+2025-06-08 14:53:36,104 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 14:53:36,104 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 14:53:36,106 [INFO]  * Restarting with stat
+2025-06-08 14:53:40,940 [INFO] Scheduler started
+2025-06-08 14:53:40,960 [WARNING]  * Debugger is active!
+2025-06-08 14:53:40,965 [INFO]  * Debugger PIN: 123-023-656
+2025-06-08 14:55:11,704 [INFO]  * Detected change in 'C:\\Users\\91830\\Desktop\\appp\\ai_agent_builder\\tools.py', reloading
+2025-06-08 14:55:12,538 [INFO]  * Restarting with stat
+2025-06-08 14:55:17,022 [INFO] Scheduler started
+2025-06-08 14:55:17,038 [WARNING]  * Debugger is active!
+2025-06-08 14:55:17,043 [INFO]  * Debugger PIN: 123-023-656
+2025-06-08 14:55:41,695 [INFO]  * Detected change in 'C:\\Users\\91830\\Desktop\\appp\\ai_agent_builder\\agents.py', reloading
+2025-06-08 14:55:42,007 [INFO]  * Restarting with stat
+2025-06-08 14:55:46,118 [INFO] Scheduler started
+2025-06-08 14:55:46,133 [WARNING]  * Debugger is active!
+2025-06-08 14:55:46,138 [INFO]  * Debugger PIN: 123-023-656
+2025-06-08 14:56:20,820 [INFO]  * Detected change in 'C:\\Users\\91830\\Desktop\\appp\\ai_agent_builder\\main.py', reloading
+2025-06-08 14:56:21,126 [INFO]  * Restarting with stat
+2025-06-08 14:57:16,956 [INFO] Scheduler started
+2025-06-08 14:57:16,966 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 14:57:16,966 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 14:58:58,125 [INFO] Scheduler started
+2025-06-08 14:58:58,135 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 14:58:58,135 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 15:03:20,106 [INFO] Scheduler started
+2025-06-08 15:03:20,116 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 15:03:20,116 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 15:11:13,417 [INFO] Scheduler started
+2025-06-08 15:11:13,418 [INFO] APScheduler started successfully
+2025-06-08 15:11:13,421 [INFO] Starting Flask server on port 5000
+2025-06-08 15:11:13,435 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 15:11:13,435 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 15:11:57,111 [INFO] 127.0.0.1 - - [08/Jun/2025 15:11:57] "GET / HTTP/1.1" 200 -
+2025-06-08 15:11:57,178 [INFO] 127.0.0.1 - - [08/Jun/2025 15:11:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-08 15:12:00,465 [INFO] 127.0.0.1 - - [08/Jun/2025 15:12:00] "[36mGET / HTTP/1.1[0m" 304 -
+2025-06-08 15:12:50,765 [INFO] Generating agent for prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:12:51,601 [ERROR] Error creating agent: Prompt missing required variables: {'agent_scratchpad'}
+2025-06-08 15:12:51,601 [ERROR] Error generating agent: Prompt missing required variables: {'agent_scratchpad'}
+2025-06-08 15:12:51,602 [INFO] 127.0.0.1 - - [08/Jun/2025 15:12:51] "[35m[1mPOST /generate_agent HTTP/1.1[0m" 500 -
+2025-06-08 15:14:04,028 [INFO] Generating agent for prompt: Scrape top headlines from Hacker News and email them to akshaysasi12.knr@gmail.com
+2025-06-08 15:14:04,843 [ERROR] Error creating agent: Prompt missing required variables: {'agent_scratchpad'}
+2025-06-08 15:14:04,844 [ERROR] Error generating agent: Prompt missing required variables: {'agent_scratchpad'}
+2025-06-08 15:14:04,844 [INFO] 127.0.0.1 - - [08/Jun/2025 15:14:04] "[35m[1mPOST /generate_agent HTTP/1.1[0m" 500 -
+2025-06-08 15:20:23,747 [INFO] Scheduler started
+2025-06-08 15:20:23,749 [INFO] APScheduler started successfully
+2025-06-08 15:20:23,752 [INFO] Starting Flask server on port 5000
+2025-06-08 15:20:23,806 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 15:20:23,807 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 15:20:29,122 [INFO] 127.0.0.1 - - [08/Jun/2025 15:20:29] "[36mGET / HTTP/1.1[0m" 304 -
+2025-06-08 15:20:30,057 [INFO] 127.0.0.1 - - [08/Jun/2025 15:20:30] "[36mGET / HTTP/1.1[0m" 304 -
+2025-06-08 15:20:30,213 [INFO] 127.0.0.1 - - [08/Jun/2025 15:20:30] "[36mGET / HTTP/1.1[0m" 304 -
+2025-06-08 15:20:30,442 [INFO] 127.0.0.1 - - [08/Jun/2025 15:20:30] "[36mGET / HTTP/1.1[0m" 304 -
+2025-06-08 15:20:30,939 [INFO] 127.0.0.1 - - [08/Jun/2025 15:20:30] "[36mGET / HTTP/1.1[0m" 304 -
+2025-06-08 15:20:31,084 [INFO] 127.0.0.1 - - [08/Jun/2025 15:20:31] "[36mGET / HTTP/1.1[0m" 304 -
+2025-06-08 15:20:31,251 [INFO] 127.0.0.1 - - [08/Jun/2025 15:20:31] "[36mGET / HTTP/1.1[0m" 304 -
+2025-06-08 15:20:31,417 [INFO] 127.0.0.1 - - [08/Jun/2025 15:20:31] "[36mGET / HTTP/1.1[0m" 304 -
+2025-06-08 15:20:31,568 [INFO] 127.0.0.1 - - [08/Jun/2025 15:20:31] "[36mGET / HTTP/1.1[0m" 304 -
+2025-06-08 15:20:31,777 [INFO] 127.0.0.1 - - [08/Jun/2025 15:20:31] "[36mGET / HTTP/1.1[0m" 304 -
+2025-06-08 15:20:31,894 [INFO] 127.0.0.1 - - [08/Jun/2025 15:20:31] "[36mGET / HTTP/1.1[0m" 304 -
+2025-06-08 15:20:32,126 [INFO] 127.0.0.1 - - [08/Jun/2025 15:20:32] "[36mGET / HTTP/1.1[0m" 304 -
+2025-06-08 15:20:46,191 [INFO] Generating agent for prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:20:47,154 [INFO] Agent created successfully for prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:20:49,014 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:20:49,015 [INFO] Retrying request to /chat/completions in 0.393664 seconds
+2025-06-08 15:20:50,374 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:20:50,375 [INFO] Retrying request to /chat/completions in 0.920945 seconds
+2025-06-08 15:20:52,982 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:20:53,021 [ERROR] Error running agent db2a750a-5571-48b3-8e44-7226000f4faf: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-06-08 15:20:53,022 [INFO] 127.0.0.1 - - [08/Jun/2025 15:20:53] "[35m[1mPOST /generate_agent HTTP/1.1[0m" 500 -
+2025-06-08 15:24:07,826 [INFO] Scheduler started
+2025-06-08 15:24:07,827 [INFO] APScheduler started successfully
+2025-06-08 15:24:07,831 [INFO] Starting Flask server on port 5000
+2025-06-08 15:24:07,846 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 15:24:07,875 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 15:24:16,292 [INFO] 127.0.0.1 - - [08/Jun/2025 15:24:16] "[36mGET / HTTP/1.1[0m" 304 -
+2025-06-08 15:24:26,415 [INFO] Generating agent for prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:24:27,280 [INFO] OpenAI LLM initialized successfully
+2025-06-08 15:24:27,303 [INFO] Agent created successfully for prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:24:28,634 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:24:28,635 [INFO] Retrying request to /chat/completions in 0.484911 seconds
+2025-06-08 15:24:30,270 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:24:30,271 [INFO] Retrying request to /chat/completions in 0.907883 seconds
+2025-06-08 15:24:31,908 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:24:31,911 [ERROR] Error running agent e5d91617-efe7-47a0-962a-dcae0158d8dd: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-06-08 15:24:31,912 [INFO] 127.0.0.1 - - [08/Jun/2025 15:24:31] "[35m[1mPOST /generate_agent HTTP/1.1[0m" 500 -
+2025-06-08 15:24:34,791 [INFO] Generating agent for prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:24:35,635 [INFO] OpenAI LLM initialized successfully
+2025-06-08 15:24:35,653 [INFO] Agent created successfully for prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:24:36,622 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:24:36,623 [INFO] Retrying request to /chat/completions in 0.485973 seconds
+2025-06-08 15:24:38,564 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:24:38,565 [INFO] Retrying request to /chat/completions in 0.786955 seconds
+2025-06-08 15:24:40,817 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:24:40,819 [ERROR] Error running agent f53242a1-42cb-450e-ad32-d76f722305a4: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-06-08 15:24:40,820 [INFO] 127.0.0.1 - - [08/Jun/2025 15:24:40] "[35m[1mPOST /generate_agent HTTP/1.1[0m" 500 -
+2025-06-08 15:25:33,039 [INFO] Generating agent for prompt: Scrape top headlines from Hacker News and email them to akshaysasi12.knr@gmail.com
+2025-06-08 15:25:33,295 [INFO] Generating agent for prompt: Scrape top headlines from Hacker News and email them to akshaysasi12.knr@gmail.com
+2025-06-08 15:25:34,045 [INFO] OpenAI LLM initialized successfully
+2025-06-08 15:25:34,073 [INFO] Agent created successfully for prompt: Scrape top headlines from Hacker News and email them to akshaysasi12.knr@gmail.com
+2025-06-08 15:25:34,273 [INFO] OpenAI LLM initialized successfully
+2025-06-08 15:25:34,291 [INFO] Agent created successfully for prompt: Scrape top headlines from Hacker News and email them to akshaysasi12.knr@gmail.com
+2025-06-08 15:25:35,089 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:25:35,114 [INFO] Retrying request to /chat/completions in 0.482508 seconds
+2025-06-08 15:25:35,396 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:25:35,397 [INFO] Retrying request to /chat/completions in 0.441907 seconds
+2025-06-08 15:25:36,125 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:25:36,126 [INFO] Retrying request to /chat/completions in 0.959154 seconds
+2025-06-08 15:25:37,546 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:25:37,547 [INFO] Retrying request to /chat/completions in 0.826577 seconds
+2025-06-08 15:25:38,374 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:25:38,375 [ERROR] Error running agent 32c63c2c-0c47-451f-b285-55439b008742: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-06-08 15:25:38,378 [INFO] 127.0.0.1 - - [08/Jun/2025 15:25:38] "[35m[1mPOST /generate_agent HTTP/1.1[0m" 500 -
+2025-06-08 15:25:40,925 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:25:40,926 [ERROR] Error running agent c9864da1-61b6-4192-8b4a-69b9aad1f4df: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-06-08 15:25:40,927 [INFO] 127.0.0.1 - - [08/Jun/2025 15:25:40] "[35m[1mPOST /generate_agent HTTP/1.1[0m" 500 -
+2025-06-08 15:27:16,688 [INFO] Generating agent for prompt: Summarize the PDF at uploads\Akshay_Sasi_Resume_Official.pdf
+2025-06-08 15:27:17,681 [INFO] OpenAI LLM initialized successfully
+2025-06-08 15:27:17,699 [INFO] Agent created successfully for prompt: Summarize the PDF at uploads\Akshay_Sasi_Resume_Official.pdf
+2025-06-08 15:27:18,510 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:27:18,511 [INFO] Retrying request to /chat/completions in 0.423441 seconds
+2025-06-08 15:27:19,534 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:27:19,534 [INFO] Retrying request to /chat/completions in 0.974934 seconds
+2025-06-08 15:27:21,288 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:27:21,289 [ERROR] Error running agent 7043fe56-fd53-4a69-9b00-6f948547741a: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-06-08 15:27:21,290 [INFO] 127.0.0.1 - - [08/Jun/2025 15:27:21] "[35m[1mPOST /generate_agent HTTP/1.1[0m" 500 -
+2025-06-08 15:29:13,797 [INFO] Scheduler started
+2025-06-08 15:29:13,799 [INFO] APScheduler started successfully
+2025-06-08 15:29:13,802 [INFO] Starting Flask server on port 5000
+2025-06-08 15:29:13,815 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 15:29:13,816 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 15:29:51,405 [INFO] 127.0.0.1 - - [08/Jun/2025 15:29:51] "[36mGET / HTTP/1.1[0m" 304 -
+2025-06-08 15:29:51,496 [INFO] 127.0.0.1 - - [08/Jun/2025 15:29:51] "[36mGET / HTTP/1.1[0m" 304 -
+2025-06-08 15:29:58,651 [INFO] Generating agent for prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:29:58,651 [INFO] Creating simple agent for prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:29:58,651 [INFO] Agent created successfully for prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:29:58,652 [INFO] SimpleAgentExecutor processing prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:29:59,071 [ERROR] Twitter API error for elonmusk: 401 Unauthorized
+Unauthorized (Status Code: N/A)
+2025-06-08 15:29:59,072 [INFO] Initial run for agent 9834662b-e19d-457e-86c8-9c5a0b1f85a2 successful: Error summarizing tweets for elonmusk: Twitter API error for elonmusk: 401 Unauthorized
+Unauthorized (Status Code: N/A)
+2025-06-08 15:29:59,072 [INFO] Added job "run_agent" to job store "default"
+2025-06-08 15:29:59,073 [INFO] Agent 9834662b-e19d-457e-86c8-9c5a0b1f85a2 scheduled to run every 5.0 minutes
+2025-06-08 15:29:59,074 [INFO] 127.0.0.1 - - [08/Jun/2025 15:29:59] "POST /generate_agent HTTP/1.1" 200 -
+2025-06-08 15:30:09,084 [INFO] Manually running agent 9834662b-e19d-457e-86c8-9c5a0b1f85a2 with prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:30:09,084 [INFO] SimpleAgentExecutor processing prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:30:09,413 [ERROR] Twitter API error for elonmusk: 401 Unauthorized
+Unauthorized (Status Code: N/A)
+2025-06-08 15:30:09,413 [INFO] Manual run for agent 9834662b-e19d-457e-86c8-9c5a0b1f85a2 successful: Error summarizing tweets for elonmusk: Twitter API error for elonmusk: 401 Unauthorized
+Unauthorized (Status Code: N/A)
+2025-06-08 15:30:09,414 [INFO] 127.0.0.1 - - [08/Jun/2025 15:30:09] "GET /run_agent/9834662b-e19d-457e-86c8-9c5a0b1f85a2 HTTP/1.1" 200 -
+2025-06-08 15:30:12,176 [INFO] Manually running agent 9834662b-e19d-457e-86c8-9c5a0b1f85a2 with prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:30:12,176 [INFO] SimpleAgentExecutor processing prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:30:12,588 [ERROR] Twitter API error for elonmusk: 401 Unauthorized
+Unauthorized (Status Code: N/A)
+2025-06-08 15:30:12,588 [INFO] Manual run for agent 9834662b-e19d-457e-86c8-9c5a0b1f85a2 successful: Error summarizing tweets for elonmusk: Twitter API error for elonmusk: 401 Unauthorized
+Unauthorized (Status Code: N/A)
+2025-06-08 15:30:12,589 [INFO] 127.0.0.1 - - [08/Jun/2025 15:30:12] "GET /run_agent/9834662b-e19d-457e-86c8-9c5a0b1f85a2 HTTP/1.1" 200 -
+2025-06-08 15:30:13,622 [INFO] Generating agent for prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:30:13,623 [INFO] Creating simple agent for prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:30:13,623 [INFO] Agent created successfully for prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:30:13,623 [INFO] SimpleAgentExecutor processing prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:30:16,071 [ERROR] Twitter API error for elonmusk: 401 Unauthorized
+Unauthorized (Status Code: N/A)
+2025-06-08 15:30:16,071 [INFO] Initial run for agent 1b4c0b2e-a298-4a32-b00c-44b14f3743ac successful: Error summarizing tweets for elonmusk: Twitter API error for elonmusk: 401 Unauthorized
+Unauthorized (Status Code: N/A)
+2025-06-08 15:30:16,072 [INFO] Added job "run_agent" to job store "default"
+2025-06-08 15:30:16,072 [INFO] Agent 1b4c0b2e-a298-4a32-b00c-44b14f3743ac scheduled to run every 5.0 minutes
+2025-06-08 15:30:16,073 [INFO] 127.0.0.1 - - [08/Jun/2025 15:30:16] "POST /generate_agent HTTP/1.1" 200 -
+2025-06-08 15:30:46,072 [INFO] 127.0.0.1 - - [08/Jun/2025 15:30:46] "[36mGET / HTTP/1.1[0m" 304 -
+2025-06-08 15:31:08,351 [INFO] Generating agent for prompt: Scrape top headlines from Hacker News and email them to akshaysasi12.knr@gmail.com
+2025-06-08 15:31:08,352 [INFO] Creating simple agent for prompt: Scrape top headlines from Hacker News and email them to akshaysasi12.knr@gmail.com
+2025-06-08 15:31:08,352 [INFO] Agent created successfully for prompt: Scrape top headlines from Hacker News and email them to akshaysasi12.knr@gmail.com
+2025-06-08 15:31:08,352 [INFO] SimpleAgentExecutor processing prompt: Scrape top headlines from Hacker News and email them to akshaysasi12.knr@gmail.com
+2025-06-08 15:31:17,048 [INFO] Initial run for agent b0ef6310-dd94-4aaf-b62e-c129cce9980c successful: Top 5 headlines from Hacker News:
+1. Reverse engineering Claude Code (April 2025)
+2. kirshatrov.com
+3. A look at Cloudflare's AI-coded OAuth library
+4. neilmadden.blog
+5. Joining Apple Computer (2018)
+Email sent to akshaysasi12.knr@gmail.com with subject 'Hacker News Top Headlines'
+2025-06-08 15:31:17,049 [INFO] Added job "run_agent" to job store "default"
+2025-06-08 15:31:17,049 [INFO] Agent b0ef6310-dd94-4aaf-b62e-c129cce9980c scheduled to run every 1440.0 minutes
+2025-06-08 15:31:17,050 [INFO] 127.0.0.1 - - [08/Jun/2025 15:31:17] "POST /generate_agent HTTP/1.1" 200 -
+2025-06-08 15:33:01,892 [INFO] 127.0.0.1 - - [08/Jun/2025 15:33:01] "[36mGET / HTTP/1.1[0m" 304 -
+2025-06-08 15:34:03,050 [INFO] Generating agent for prompt: Summarize the PDF at uploads\Akshay_Sasi_Resume_Official.pdf
+2025-06-08 15:34:03,051 [INFO] Creating simple agent for prompt: Summarize the PDF at uploads\Akshay_Sasi_Resume_Official.pdf
+2025-06-08 15:34:03,051 [INFO] Agent created successfully for prompt: Summarize the PDF at uploads\Akshay_Sasi_Resume_Official.pdf
+2025-06-08 15:34:03,051 [INFO] SimpleAgentExecutor processing prompt: Summarize the PDF at uploads\Akshay_Sasi_Resume_Official.pdf
+2025-06-08 15:34:05,442 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:34:05,443 [INFO] Retrying request to /chat/completions in 0.382230 seconds
+2025-06-08 15:34:07,693 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:34:07,694 [INFO] Retrying request to /chat/completions in 0.834294 seconds
+2025-06-08 15:34:09,741 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-08 15:34:09,744 [ERROR] Error summarizing PDF at uploads\akshay_sasi_resume_official.pdf: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-06-08 15:34:09,744 [INFO] Initial run for agent e67b7f29-588a-40eb-bc8e-8d6757a39866 successful: Error summarizing PDF at uploads\akshay_sasi_resume_official.pdf: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-06-08 15:34:09,746 [INFO] Started file monitoring for agent e67b7f29-588a-40eb-bc8e-8d6757a39866
+2025-06-08 15:34:09,747 [INFO] 127.0.0.1 - - [08/Jun/2025 15:34:09] "POST /generate_agent HTTP/1.1" 200 -
+2025-06-08 15:34:59,077 [INFO] Running job "run_agent (trigger: interval[0:05:00], next run at: 2025-06-08 15:34:59 IST)" (scheduled at 2025-06-08 15:34:59.072524+05:30)
+2025-06-08 15:34:59,077 [INFO] Scheduled run started for agent 9834662b-e19d-457e-86c8-9c5a0b1f85a2 with prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:34:59,078 [INFO] SimpleAgentExecutor processing prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:35:02,176 [ERROR] Twitter API error for elonmusk: 401 Unauthorized
+Unauthorized (Status Code: N/A)
+2025-06-08 15:35:02,176 [INFO] Scheduled run for agent 9834662b-e19d-457e-86c8-9c5a0b1f85a2 successful: Error summarizing tweets for elonmusk: Twitter API error for elonmusk: 401 Unauthorized
+Unauthorized (Status Code: N/A)
+2025-06-08 15:35:02,176 [INFO] Job "run_agent (trigger: interval[0:05:00], next run at: 2025-06-08 15:39:59 IST)" executed successfully
+2025-06-08 15:35:16,078 [INFO] Running job "run_agent (trigger: interval[0:05:00], next run at: 2025-06-08 15:40:16 IST)" (scheduled at 2025-06-08 15:35:16.072181+05:30)
+2025-06-08 15:35:16,079 [INFO] Scheduled run started for agent 1b4c0b2e-a298-4a32-b00c-44b14f3743ac with prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:35:16,079 [INFO] SimpleAgentExecutor processing prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:35:16,504 [ERROR] Twitter API error for elonmusk: 401 Unauthorized
+Unauthorized (Status Code: N/A)
+2025-06-08 15:35:16,504 [INFO] Scheduled run for agent 1b4c0b2e-a298-4a32-b00c-44b14f3743ac successful: Error summarizing tweets for elonmusk: Twitter API error for elonmusk: 401 Unauthorized
+Unauthorized (Status Code: N/A)
+2025-06-08 15:35:16,504 [INFO] Job "run_agent (trigger: interval[0:05:00], next run at: 2025-06-08 15:40:16 IST)" executed successfully
+2025-06-08 15:39:59,078 [INFO] Running job "run_agent (trigger: interval[0:05:00], next run at: 2025-06-08 15:44:59 IST)" (scheduled at 2025-06-08 15:39:59.072524+05:30)
+2025-06-08 15:39:59,079 [INFO] Scheduled run started for agent 9834662b-e19d-457e-86c8-9c5a0b1f85a2 with prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:39:59,079 [INFO] SimpleAgentExecutor processing prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:39:59,512 [ERROR] Twitter API error for elonmusk: 401 Unauthorized
+Unauthorized (Status Code: N/A)
+2025-06-08 15:39:59,512 [INFO] Scheduled run for agent 9834662b-e19d-457e-86c8-9c5a0b1f85a2 successful: Error summarizing tweets for elonmusk: Twitter API error for elonmusk: 401 Unauthorized
+Unauthorized (Status Code: N/A)
+2025-06-08 15:39:59,513 [INFO] Job "run_agent (trigger: interval[0:05:00], next run at: 2025-06-08 15:44:59 IST)" executed successfully
+2025-06-08 15:40:16,080 [INFO] Running job "run_agent (trigger: interval[0:05:00], next run at: 2025-06-08 15:45:16 IST)" (scheduled at 2025-06-08 15:40:16.072181+05:30)
+2025-06-08 15:40:16,081 [INFO] Scheduled run started for agent 1b4c0b2e-a298-4a32-b00c-44b14f3743ac with prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:40:16,081 [INFO] SimpleAgentExecutor processing prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:40:16,429 [ERROR] Twitter API error for elonmusk: 401 Unauthorized
+Unauthorized (Status Code: N/A)
+2025-06-08 15:40:16,430 [INFO] Scheduled run for agent 1b4c0b2e-a298-4a32-b00c-44b14f3743ac successful: Error summarizing tweets for elonmusk: Twitter API error for elonmusk: 401 Unauthorized
+Unauthorized (Status Code: N/A)
+2025-06-08 15:40:16,430 [INFO] Job "run_agent (trigger: interval[0:05:00], next run at: 2025-06-08 15:45:16 IST)" executed successfully
+2025-06-08 15:49:30,614 [INFO] Scheduler started
+2025-06-08 15:49:30,615 [INFO] APScheduler started successfully
+2025-06-08 15:49:30,619 [INFO] Starting Flask server on port 5000
+2025-06-08 15:49:30,630 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 15:49:30,630 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 15:49:46,849 [INFO] 127.0.0.1 - - [08/Jun/2025 15:49:46] "[36mGET / HTTP/1.1[0m" 304 -
+2025-06-08 15:50:01,259 [INFO] Generating agent for prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:50:01,259 [INFO] Creating simple agent for prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:50:01,259 [INFO] Agent created successfully for prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:50:01,259 [INFO] SimpleAgentExecutor processing prompt: Summarize tweets from elonmusk and post the summary to Twitter
+2025-06-08 15:50:01,736 [ERROR] Twitter API error for elonmusk: 401 Unauthorized
+Unauthorized (Status Code: N/A)
+2025-06-08 15:50:01,737 [WARNING] 401 Unauthorized error detected. Falling back to mock data for elonmusk.
+2025-06-08 15:50:02,454 [INFO] Initial run for agent 744a8e22-9a93-4fb4-8a24-78f49bd7ca71 successful: Summary of elonmusk's recent tweets: (Mock) Exciting updates coming soon! #Innovation
+Tweet posted: Summary of elonmusk's recent tweets: (Mock) Exciting updates coming soon! #Innovation (Tweet ID: 1931657468607644074)
+2025-06-08 15:50:02,454 [INFO] Added job "run_agent" to job store "default"
+2025-06-08 15:50:02,455 [INFO] Agent 744a8e22-9a93-4fb4-8a24-78f49bd7ca71 scheduled to run every 5.0 minutes
+2025-06-08 15:50:02,456 [INFO] 127.0.0.1 - - [08/Jun/2025 15:50:02] "POST /generate_agent HTTP/1.1" 200 -
+2025-06-08 15:59:02,398 [INFO] Scheduler started
+2025-06-08 15:59:02,399 [INFO] APScheduler started successfully
+2025-06-08 15:59:02,402 [INFO] Starting Flask server on port 5000
+2025-06-08 15:59:02,412 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 15:59:02,412 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 16:04:01,367 [INFO] Scheduler started
+2025-06-08 16:04:01,369 [INFO] APScheduler started successfully
+2025-06-08 16:04:01,372 [INFO] Starting Flask server on port 5000
+2025-06-08 16:04:01,387 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 16:04:01,387 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 16:05:37,030 [INFO] Scheduler started
+2025-06-08 16:05:37,032 [INFO] APScheduler started successfully
+2025-06-08 16:05:37,036 [INFO] Starting Flask server on port 5000
+2025-06-08 16:05:37,048 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 16:05:37,048 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 16:22:39,178 [INFO] Scheduler started
+2025-06-08 16:22:39,180 [INFO] APScheduler started successfully
+2025-06-08 16:22:39,183 [INFO] Starting Flask server on port 5000
+2025-06-08 16:22:39,198 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 16:22:39,198 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 20:24:16,587 [INFO] Scheduler started
+2025-06-08 20:24:16,588 [INFO] APScheduler started successfully
+2025-06-08 20:24:16,591 [INFO] Starting Flask server on port 5000
+2025-06-08 20:24:16,604 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 20:24:16,604 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 20:30:06,168 [INFO] Scheduler started
+2025-06-08 20:30:06,169 [INFO] APScheduler started successfully
+2025-06-08 20:30:06,172 [INFO] Starting Flask server on port 5000
+2025-06-08 20:30:06,181 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 20:30:06,181 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 20:35:27,474 [INFO] Scheduler started
+2025-06-08 20:35:27,475 [INFO] APScheduler started successfully
+2025-06-08 20:35:27,477 [INFO] Starting Flask server on port 5000
+2025-06-08 20:35:27,495 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 20:35:27,495 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 20:37:28,695 [INFO] Scheduler started
+2025-06-08 20:37:28,696 [INFO] APScheduler started successfully
+2025-06-08 20:37:28,698 [INFO] Starting Flask server on port 5000
+2025-06-08 20:37:28,705 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 20:37:28,705 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 20:37:43,541 [INFO] 127.0.0.1 - - [08/Jun/2025 20:37:43] "OPTIONS /generate_agent HTTP/1.1" 200 -
+2025-06-08 20:37:46,108 [INFO] 127.0.0.1 - - [08/Jun/2025 20:37:46] "OPTIONS /generate_agent HTTP/1.1" 200 -
+2025-06-08 20:37:47,010 [INFO] 127.0.0.1 - - [08/Jun/2025 20:37:47] "OPTIONS /generate_agent HTTP/1.1" 200 -
+2025-06-08 20:37:47,196 [INFO] 127.0.0.1 - - [08/Jun/2025 20:37:47] "OPTIONS /generate_agent HTTP/1.1" 200 -
+2025-06-08 20:37:47,414 [INFO] 127.0.0.1 - - [08/Jun/2025 20:37:47] "OPTIONS /generate_agent HTTP/1.1" 200 -
+2025-06-08 20:37:47,775 [INFO] 127.0.0.1 - - [08/Jun/2025 20:37:47] "OPTIONS /generate_agent HTTP/1.1" 200 -
+2025-06-08 20:37:47,997 [INFO] 127.0.0.1 - - [08/Jun/2025 20:37:47] "OPTIONS /generate_agent HTTP/1.1" 200 -
+2025-06-08 20:39:05,000 [INFO] Scheduler started
+2025-06-08 20:39:05,001 [INFO] APScheduler started successfully
+2025-06-08 20:39:05,004 [INFO] Starting Flask server on port 5000
+2025-06-08 20:39:05,013 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.93.30:5000
+2025-06-08 20:39:05,013 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-08 20:39:15,397 [INFO] 127.0.0.1 - - [08/Jun/2025 20:39:15] "OPTIONS /generate_agent HTTP/1.1" 200 -
+2025-06-09 00:00:12,144 [INFO] 127.0.0.1 - - [09/Jun/2025 00:00:12] "OPTIONS /generate_agent HTTP/1.1" 200 -
