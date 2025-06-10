@@ -1,62 +1,77 @@
-import os
-from dotenv import load_dotenv
 import logging
-from langchain_core.runnables import Runnable
-from typing import Dict, Any, List
+import re
 
-load_dotenv()
+logging.basicConfig(filename='agent_builder.log', level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
 logger = logging.getLogger(__name__)
 
 class SimpleAgentExecutor:
-    def __init__(self, tools: List[Runnable], prompt: str):
-        self.tools = {tool.name: tool for tool in tools}
+    def __init__(self, tools, prompt):
+        self.tools = tools
         self.prompt = prompt
+        # Determine the agent type based on the prompt
+        prompt_lower = prompt.lower()
+        if "summarize the pdf" in prompt_lower or "summarize pdf" in prompt_lower:
+            self.agent_type = "pdf_summarization"
+        elif "elon musk" in prompt_lower and ("tweets" in prompt_lower or "summary" in prompt_lower):
+            self.agent_type = "twitter_summarization"
+        elif "scrape top headlines" in prompt_lower:
+            self.agent_type = "hacker_news"
+        else:
+            self.agent_type = "unknown"
 
-    def invoke(self, input_dict: Dict[str, Any]) -> Dict[str, Any]:
-        try:
-            input_prompt = input_dict.get("input", self.prompt)
-            logger.info(f"SimpleAgentExecutor processing prompt: {input_prompt}")
+    def invoke(self, input_data):
+        prompt = input_data.get("input", self.prompt).lower()
+        logger.info(f"SimpleAgentExecutor (type: {self.agent_type}) processing prompt: {prompt}")
 
-            if "summarize tweets" in input_prompt.lower():
-                username = "elonmusk"
-                if "from" in input_prompt.lower():
-                    username = input_prompt.lower().split("from")[-1].split("and")[0].strip()
-                summary = self.tools["summarize_tweets"].invoke({"username": username})
-                if "error" in summary.lower():
-                    return {"output": summary}
-                post_result = self.tools["post_tweet"].invoke({"content": summary})
-                return {"output": f"{summary}\n{post_result}"}
+        if self.agent_type == "hacker_news" or "scrape top headlines" in prompt:
+            headlines = self.tools["scrape_headlines"]({"url": "https://news.ycombinator.com/"})
+            if "error" in headlines["output"].lower():
+                return {"output": f"Failed to scrape headlines: {headlines['output']}"}
+            email_recipient = "user@example.com"
+            if "email them to" in prompt:
+                email_part = prompt.split("email them to")[-1].strip()
+                email_recipient = email_part.split()[0] if email_part else email_recipient
+            email_result = self.tools["send_email"]({
+                "recipient": email_recipient,
+                "subject": "Hacker News Top Headlines",
+                "body": f"Top 5 headlines from Hacker News:\n{headlines['output']}"
+            })
+            return {"output": f"Top 5 headlines from Hacker News:\n{headlines['output']}\n{email_result['output']}"}
 
-            elif "scrape top headlines" in input_prompt.lower():
-                headlines = self.tools["scrape_headlines"].invoke({"url": "https://news.ycombinator.com/"})
-                if "error" in headlines.lower():
-                    return {"output": headlines}
-                email_recipient = "user@example.com"
-                if "email them to" in input_prompt.lower():
-                    email_recipient = input_prompt.lower().split("email them to")[-1].strip()
-                email_result = self.tools["send_email"].invoke({
-                    "recipient": email_recipient,
-                    "subject": "Hacker News Top Headlines",
-                    "body": headlines
-                })
-                return {"output": f"{headlines}\n{email_result}"}
+        elif self.agent_type == "twitter_summarization" or ("elon musk" in prompt and ("tweets" in prompt or "summary" in prompt)):
+            tweets = self.tools["scrape_tweets"]({"username": "@elonmusk"})
+            if "error" in tweets["output"].lower():
+                return {"output": f"Failed to scrape tweets: {tweets['output']}"}
+            tweet_text = tweets["output"].lower()
+            topics = []
+            if "tesla" in tweet_text:
+                topics.append("Tesla")
+            if "spacex" in tweet_text:
+                topics.append("SpaceX")
+            if "mars" in tweet_text:
+                topics.append("Mars exploration")
+            if "ai" in tweet_text:
+                topics.append("AI")
+            if not topics:
+                topics.append("various topics")
+            summary = f"Summary of Elon Musk's tweets:\n- Discussed {', '.join(topics)}."
+            logger.info(f"Posting summary of Elon Musk's tweets: {summary}")
+            return {"output": f"Elon Musk's tweets:\n{tweets['output']}\n{summary}\nPosted summary to log."}
 
-            elif "summarize the pdf" in input_prompt.lower():
-                file_path = input_prompt.lower().split("at")[-1].strip()
-                summary = self.tools["summarize_pdf"].invoke({"file_path": file_path})
-                return {"output": summary}
+        elif self.agent_type == "pdf_summarization" and ("summarize the pdf" in prompt or "summarize pdf" in prompt):
+            file_path = None
+            for word in prompt.split():
+                if word.endswith(".pdf"):
+                    file_path = word
+                    break
+            if not file_path:
+                return {"output": "Error: PDF file path not found in prompt. Please upload a PDF and try again."}
+            summary = self.tools["summarize_pdf"]({"file_path": file_path})
+            return {"output": summary["output"]}
 
-            else:
-                return {"output": f"Unsupported prompt: {input_prompt}. Please use a supported task (e.g., summarize tweets, scrape headlines, summarize PDF)."}
-        except Exception as e:
-            logger.error(f"Error in SimpleAgentExecutor: {str(e)}")
-            return {"output": f"Error processing prompt: {str(e)}"}
+        else:
+            return {"output": "Prompt not recognized. Try asking about Hacker News headlines, Elon Musk's tweets, or PDF summarization."}
 
-def create_agent(tools: List[Runnable], prompt: str) -> SimpleAgentExecutor:
-    try:
-        logger.info(f"Creating simple agent for prompt: {prompt}")
-        agent_executor = SimpleAgentExecutor(tools=tools, prompt=prompt)
-        return agent_executor
-    except Exception as e:
-        logger.error(f"Error creating agent: {str(e)}")
-        raise
+def create_agent(tools, prompt):
+    logger.info(f"Creating simple agent for prompt: {prompt}")
+    return SimpleAgentExecutor(tools, prompt)
