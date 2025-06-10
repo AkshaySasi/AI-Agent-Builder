@@ -4,6 +4,7 @@ import os
 import uuid
 import logging
 import time
+import hashlib
 from dotenv import load_dotenv
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.interval import IntervalTrigger
@@ -19,6 +20,14 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "POST", "OPTIONS"], "allow_headers": ["Content-Type"]}})
 
+@app.route('/<path:path>', methods=['OPTIONS'])
+def handle_options(path):
+    response = jsonify({})
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+    return response
+
 scheduler = BackgroundScheduler()
 scheduler.start()
 logger.info("APScheduler started successfully")
@@ -31,6 +40,12 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 def method_not_allowed(e):
     logger.error(f"405 Method Not Allowed: {request.method} on {request.path}")
     return jsonify({'error': f"Method {request.method} not allowed on {request.path}. Use POST."}), 405
+
+@app.after_request
+def log_response_headers(response):
+    if request.method == "OPTIONS":
+        logger.info(f"OPTIONS response headers: {response.headers}")
+    return response
 
 class PDFHandler(FileSystemEventHandler):
     def __init__(self, agent_id):
@@ -58,6 +73,23 @@ class PDFHandler(FileSystemEventHandler):
 def index():
     return send_from_directory('static', 'index.html')
 
+@app.route('/list_agents', methods=['GET'])
+def list_agents():
+    try:
+        agent_details = []
+        for agent_id, agent_data in agents.items():
+            agent_details.append({
+                'agent_id': agent_id,
+                'prompt': agent_data['prompt'],
+                'interval': agent_data['interval'],
+                'last_pdf_summary': agent_data['last_pdf_summary']
+            })
+        logger.info("Returning list of agents")
+        return jsonify({'agents': agent_details})
+    except Exception as e:
+        logger.error(f"Error listing agents: {str(e)}")
+        return jsonify({'error': f"Error listing agents: {str(e)}"}), 500
+
 @app.route('/generate_agent', methods=['POST'])
 def generate_agent():
     try:
@@ -83,25 +115,34 @@ def generate_agent():
             'last_pdf_summary': None
         }
 
-        try:
-            logger.info(f"Invoking agent for initial run: {agent_id}")
-            output = agent.invoke({'input': prompt})['output']
-            logger.info(f"Initial run for agent {agent_id} successful: {output}")
-        except Exception as e:
-            logger.error(f"Error running agent {agent_id}: {str(e)}")
-            return jsonify({'error': f"Error running agent: {str(e)}"}), 500
+        output = None
+        if not ("summarize the pdf" in prompt.lower() or "summarize pdf" in prompt.lower()):
+            try:
+                logger.info(f"Invoking agent for initial run: {agent_id}")
+                output = agent.invoke({'input': prompt})['output']
+                logger.info(f"Initial run for agent {agent_id} successful: {output}")
+            except Exception as e:
+                logger.error(f"Error running agent {agent_id}: {str(e)}")
+                return jsonify({'error': f"Error running agent: {str(e)}"}), 500
+        else:
+            output = "Agent created for PDF summarization. Please upload a PDF to proceed."
 
-        if agents[agent_id]['interval']:
-            interval_minutes = float(agents[agent_id]['interval'])
-            scheduler.add_job(
-                run_agent,
-                trigger=IntervalTrigger(minutes=interval_minutes),
-                args=[agent_id],
-                id=agent_id,
-                max_instances=1,
-                replace_existing=True
-            )
-            logger.info(f"Agent {agent_id} scheduled to run every {interval_minutes} minutes")
+        interval = agents[agent_id]['interval']
+        if interval and interval.strip():
+            try:
+                interval_minutes = float(interval)
+                scheduler.add_job(
+                    run_agent,
+                    trigger=IntervalTrigger(minutes=interval_minutes),
+                    args=[agent_id],
+                    id=agent_id,
+                    max_instances=1,
+                    replace_existing=True
+                )
+                logger.info(f"Agent {agent_id} scheduled to run every {interval_minutes} minutes")
+            except ValueError as e:
+                logger.error(f"Invalid interval value '{interval}': {str(e)}")
+                return jsonify({'error': f"Invalid interval value: {interval}"}), 400
 
         if "summarize the pdf" in prompt.lower() or "summarize pdf" in prompt.lower():
             try:
@@ -173,6 +214,20 @@ def upload_pdf():
         if not file.filename.lower().endswith('.pdf'):
             logger.error(f"File {file.filename} is not a PDF")
             return jsonify({'error': 'File must be a PDF'}), 400
+
+        file_content = file.read()
+        file_hash = hashlib.md5(file_content).hexdigest()
+        file.seek(0)
+
+        for existing_file in os.listdir(UPLOAD_FOLDER):
+            existing_file_path = os.path.join(UPLOAD_FOLDER, existing_file)
+            if os.path.isfile(existing_file_path):
+                with open(existing_file_path, 'rb') as f:
+                    existing_content = f.read()
+                    existing_hash = hashlib.md5(existing_content).hexdigest()
+                if existing_hash == file_hash:
+                    logger.info(f"Duplicate PDF detected. Using existing file: {existing_file_path}")
+                    return jsonify({'file_path': existing_file_path, 'message': 'PDF already uploaded, using existing file'})
 
         filename = f"{uuid.uuid4()}.pdf"
         file_path = os.path.join(UPLOAD_FOLDER, filename)
