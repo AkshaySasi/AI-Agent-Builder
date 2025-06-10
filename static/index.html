@@ -13,7 +13,8 @@
         input[type="text"], input[type="number"], input[type="email"] { width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px; }
         button { background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
         button:hover { background-color: #0056b3; }
-        #output { margin-top: 20px; padding: 10px; border: 1px solid #ddd; border-radius: 4px; background-color: #f9f9f9; white-space: pre-wrap; }
+        #output, #agents-list { margin-top: 20px; padding: 10px; border: 1px solid #ddd; border-radius: 4px; background-color: #f9f9f9; white-space: pre-wrap; }
+        .error { color: red; }
     </style>
 </head>
 <body>
@@ -34,13 +35,15 @@
 
         <div class="input-group">
             <label for="prompt">Enter Prompt:</label>
-            <input type="text" id="prompt" placeholder="e.g., Summarize tweets from elonmusk and post it">
+            <input type="text" id="prompt" placeholder="e.g., Scrape top headlines from Hacker News and email them to user@example.com">
             <label for="interval">Schedule Interval (minutes, optional):</label>
             <input type="number" id="interval" placeholder="e.g., 5 for Twitter, 1440 for daily email" min="1">
             <button onclick="generateAgent()">Generate Agent</button>
+            <button onclick="listAgents()" style="margin-left: 10px;">List Agents</button>
         </div>
 
         <div id="output"></div>
+        <div id="agents-list"></div>
     </div>
 
     <script>
@@ -52,10 +55,18 @@
         async function uploadPDF() {
             const fileInput = document.getElementById('pdf-upload');
             const uploadStatus = document.getElementById('upload-status');
+            const outputDiv = document.getElementById('output');
             const file = fileInput.files[0];
 
             if (!file) {
                 uploadStatus.innerText = 'Please select a PDF file.';
+                uploadStatus.className = 'error';
+                return;
+            }
+
+            if (!currentAgentId) {
+                uploadStatus.innerText = 'Please create a PDF summarization agent first.';
+                uploadStatus.className = 'error';
                 return;
             }
 
@@ -63,7 +74,7 @@
             formData.append('file', file);
 
             try {
-                console.log(`Sending POST request to ${API_BASE_URL}/upload_pdf`);
+                console.log(`Sending POST request to ${API_BASE_URL}/upload_pdf with FormData`);
                 const response = await fetch(`${API_BASE_URL}/upload_pdf`, {
                     method: 'POST',
                     body: formData
@@ -80,12 +91,61 @@
 
                 if (response.ok) {
                     uploadStatus.innerText = result.message + ' Path: ' + result.file_path;
+                    uploadStatus.className = '';
                     currentFilePath = result.file_path;
+                    fileInput.value = '';
+                    // Poll the server to get the PDF summary after a delay
+                    setTimeout(() => {
+                        checkPDFSummary();
+                    }, 2000);
                 } else {
                     uploadStatus.innerText = result.error || `Server error (Status: ${response.status})`;
+                    uploadStatus.className = 'error';
                 }
             } catch (error) {
+                console.error('Upload PDF fetch error:', error);
                 uploadStatus.innerText = 'Error uploading PDF: ' + error.message;
+                uploadStatus.className = 'error';
+            }
+        }
+
+        async function checkPDFSummary() {
+            const outputDiv = document.getElementById('output');
+            if (!currentAgentId) {
+                outputDiv.innerText = 'No agent available to check PDF summary.';
+                outputDiv.className = 'error';
+                return;
+            }
+
+            try {
+                console.log(`Sending GET request to ${API_BASE_URL}/list_agents`);
+                const response = await fetch(`${API_BASE_URL}/list_agents`, {
+                    method: 'GET',
+                    mode: 'cors',
+                    cache: 'no-cache'
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`Server responded with ${response.status}: ${errorText}`);
+                }
+
+                const result = await response.json();
+                const agent = result.agents.find(a => a.agent_id === currentAgentId);
+                if (agent && agent.last_pdf_summary) {
+                    outputDiv.innerText = `Last PDF Summary:\n${agent.last_pdf_summary}`;
+                    outputDiv.className = '';
+                    addCopyButton(agent.last_pdf_summary);
+                } else {
+                    outputDiv.innerText = 'No PDF summary available yet. Please wait or upload a PDF.';
+                    outputDiv.className = 'error';
+                    // Retry after a delay if no summary is available yet
+                    setTimeout(checkPDFSummary, 2000);
+                }
+            } catch (error) {
+                console.error('Check PDF summary fetch error:', error);
+                outputDiv.innerText = 'Error checking PDF summary: ' + error.message;
+                outputDiv.className = 'error';
             }
         }
 
@@ -96,6 +156,7 @@
 
             if (!promptInput) {
                 outputDiv.innerText = 'Please enter a prompt.';
+                outputDiv.className = 'error';
                 return;
             }
 
@@ -110,33 +171,69 @@
                 const response = await fetch(`${API_BASE_URL}/generate_agent`, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Cache-Control': 'no-cache'
+                        'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(payload)
+                    body: JSON.stringify(payload),
+                    mode: 'cors',
+                    cache: 'no-cache'
                 });
 
-                const clonedResponse = response.clone();
-                let result;
-                try {
-                    result = await response.json();
-                } catch (e) {
-                    const text = await clonedResponse.text();
-                    throw new Error(`Failed to parse JSON response: ${e.message}\nResponse: ${text} (Status: ${response.status})`);
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`Server responded with ${response.status}: ${errorText}`);
                 }
 
-                if (response.ok) {
-                    currentAgentId = result.agent_id;
-                    outputDiv.innerText = `Agent created (ID: ${currentAgentId}).\nOutput: ${result.output}`;
-                    if (intervalInput) {
-                        outputDiv.innerText += `\nScheduled to run every ${intervalInput} minutes.`;
-                    }
-                    addRunAgainButton();
-                } else {
-                    outputDiv.innerText = result.error || `Server error (Status: ${response.status})`;
+                const result = await response.json();
+                currentAgentId = result.agent_id;
+                outputDiv.innerText = `Agent created successfully (ID: ${currentAgentId}).\nOutput:\n${result.output}`;
+                outputDiv.className = '';
+                if (intervalInput) {
+                    outputDiv.innerText += `\nScheduled to run every ${intervalInput} minutes.`;
                 }
+                addRunAgainButton();
             } catch (error) {
+                console.error('Generate agent fetch error:', error);
                 outputDiv.innerText = 'Error generating agent: ' + error.message;
+                outputDiv.className = 'error';
+            }
+        }
+
+        async function listAgents() {
+            const agentsListDiv = document.getElementById('agents-list');
+            agentsListDiv.innerText = 'Fetching agent details... Please wait.';
+            try {
+                console.log(`Sending GET request to ${API_BASE_URL}/list_agents`);
+                const response = await fetch(`${API_BASE_URL}/list_agents`, {
+                    method: 'GET',
+                    mode: 'cors',
+                    cache: 'no-cache'
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`Server responded with ${response.status}: ${errorText}`);
+                }
+
+                const result = await response.json();
+                if (result.agents.length === 0) {
+                    agentsListDiv.innerText = 'No agents created yet.';
+                    return;
+                }
+
+                let output = 'List of Agents:\n';
+                result.agents.forEach(agent => {
+                    output += `\nAgent ID: ${agent.agent_id}\n`;
+                    output += `Prompt: ${agent.prompt}\n`;
+                    output += `Interval: ${agent.interval ? agent.interval + ' minutes' : 'Not scheduled'}\n`;
+                    output += `Last PDF Summary: ${agent.last_pdf_summary || 'None'}\n`;
+                    output += '------------------------';
+                });
+                agentsListDiv.innerText = output;
+                agentsListDiv.className = '';
+            } catch (error) {
+                console.error('List agents fetch error:', error);
+                agentsListDiv.innerText = 'Error listing agents: ' + error.message;
+                agentsListDiv.className = 'error';
             }
         }
 
@@ -152,9 +249,30 @@
             }
         }
 
+        function addCopyButton(summary) {
+            const outputDiv = document.getElementById('output');
+            if (!document.getElementById('copy-btn')) {
+                const copyBtn = document.createElement('button');
+                copyBtn.id = 'copy-btn';
+                copyBtn.innerText = 'Copy Summary';
+                copyBtn.style.marginTop = '10px';
+                copyBtn.style.marginLeft = '10px';
+                copyBtn.onclick = () => {
+                    navigator.clipboard.writeText(summary).then(() => {
+                        alert('Summary copied to clipboard!');
+                    }).catch(err => {
+                        console.error('Failed to copy summary:', err);
+                        alert('Failed to copy summary. Please copy manually.');
+                    });
+                };
+                outputDiv.appendChild(copyBtn);
+            }
+        }
+
         async function runAgent() {
             if (!currentAgentId) {
                 document.getElementById('output').innerText = 'No agent to run.';
+                document.getElementById('output').className = 'error';
                 return;
             }
 
@@ -164,28 +282,23 @@
                 console.log(`Sending GET request to ${API_BASE_URL}/run_agent/${currentAgentId}`);
                 const response = await fetch(`${API_BASE_URL}/run_agent/${currentAgentId}`, {
                     method: 'GET',
-                    headers: {
-                        'Cache-Control': 'no-cache'
-                    }
+                    mode: 'cors',
+                    cache: 'no-cache'
                 });
 
-                const clonedResponse = response.clone();
-                let result;
-                try {
-                    result = await response.json();
-                } catch (e) {
-                    const text = await clonedResponse.text();
-                    throw new Error(`Failed to parse JSON response: ${e.message}\nResponse: ${text} (Status: ${response.status})`);
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`Server responded with ${response.status}: ${errorText}`);
                 }
 
-                if (response.ok) {
-                    outputDiv.innerText = `Output: ${result.output}`;
-                    addRunAgainButton();
-                } else {
-                    outputDiv.innerText = result.error || `Server error (Status: ${response.status})`;
-                }
+                const result = await response.json();
+                outputDiv.innerText = `Output:\n${result.output}`;
+                outputDiv.className = '';
+                addRunAgainButton();
             } catch (error) {
+                console.error('Run agent fetch error:', error);
                 outputDiv.innerText = 'Error running agent: ' + error.message;
+                outputDiv.className = 'error';
             }
         }
     </script>
